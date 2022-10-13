@@ -1,3 +1,4 @@
+
 name: CI
 
 #on: [push]
@@ -9,7 +10,7 @@ on:
       - master
 
 env: # 设置环境变量
-  TZ: Asia/Shanghai # 时区（设置时区可使页面中的`最近更新时间`使用该时区时间）
+  TZ: Asia/Shanghai # 时区（设置时区可使页面中的`最近更新时间`使用时区时间）
 
 jobs:
   build: # 自定义名称
@@ -17,34 +18,47 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [14.x]
+        node-version: [12.x]
 
     steps:
-      - name: Checkout # 步骤1
-        uses: actions/checkout@v1 # 使用的动作。格式：userName/repoName。作用：检出仓库，获取源码。 官方actions库：https://github.com/actions
-      - name: Use Node.js ${{ matrix.node-version }} # 步骤2
-        uses: actions/setup-node@v1 # 作用：安装nodejs
+      # 1.检出仓库
+      - name: Checkout
+        uses: actions/checkout@master # 使用的动作。格式：userName/repoName。 官方actions库：https://github.com/actions
         with:
-          node-version: ${{ matrix.node-version }} # 版本
-      - name: Build-and-deploy # 步骤3
-        run: |
-          remote_addr=`git remote get-url --push origin`
-          commit_info=`git describe --all --always --long`
-          user_name=`git log -1 --pretty=format:'%an'`
-          user_email=`git log -1 --pretty=format:'%ae'`
-          deploy_branch=gh-pages
-          yarn
-          yarn build
-          cd docs/.vuepress/dist
-          git config --global init.defaultBranch $deploy_branch
-          git init
-          git config user.name ${user_name}
-          git config user.email ${user_email}
-          git add -A
-          git commit -m "auto deploy, $commit_info"
-          remote_addr=`echo $remote_addr | awk -F'://' '{print $2}'`
-          remote_addr=https://${user_name}:${{secrets.GITHUB_TOKEN}}@${remote_addr}
-          git remote add origin ${remote_addr}
-          git push origin HEAD:$deploy_branch --force # 推送到github $deploy_branch分支
+          persist-credentials: false
 
-      # 只提交到github pages也可以使用github-pages-deploy-action，详见: https://github.com/JamesIves/github-pages-deploy-action
+      # 2.安装nodejs
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      # 3.生成静态文件
+      - name: Build
+        run: npm install && npm run build
+
+      #      # 4.部署到 GitHub Pages
+      #      - name: Deploy
+      #        uses: JamesIves/github-pages-deploy-action@releases/v3
+      #        with:
+      #          ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+      #          REPOSITORY_NAME: 954118124/blog
+      #          BRANCH: gh-pages
+      #          FOLDER: docs/.vuepress/dist #注意这里是 npm run build 生成静态资源的路径：docs/.vuepress/dist
+
+      # 4. 部署到家里
+      - name: Deploy to Server
+        uses: easingthemes/ssh-deploy@v2.0.7
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.ACCESS_TOKEN }} # 私钥
+          # 复制操作的参数。"-avzr --delete"意味部署时清空服务器目标目录下的文件
+          ARGS: "-avzr --delete"
+          # 源目录，相对于$GITHUB_WORKSPACE根目录的路径
+          SOURCE: "docs/.vuepress/dist/"
+          # 服务器域名
+          REMOTE_HOST: ${{ secrets.SSH_REMOTE_HOST }} # 公网ip
+          REMOTE_PORT: ${{ secrets.SSH_REMOTE_PORT }}
+          # 腾讯云默认用户名为root
+          REMOTE_USER: ${{ secrets.SSH_REMOTE_USER }}
+          # 目标目录
+          TARGET: ${{ secrets.SSH_REMOTE_DIR }} #/usr/local/software/blog
