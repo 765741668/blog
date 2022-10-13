@@ -57,6 +57,7 @@ jobs:
           SOURCE: "docs/.vuepress/dist/"
           # 服务器域名
           REMOTE_HOST: ${{ secrets.SSH_REMOTE_HOST }} # 公网ip
+          REMOTE_PORT: ${{ secrets.SSH_REMOTE_PORT }}
           # 腾讯云默认用户名为root
           REMOTE_USER: ${{ secrets.SSH_REMOTE_USER }}
           # 目标目录
