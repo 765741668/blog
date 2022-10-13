@@ -56,4 +56,4 @@ jobs:
             port: ${{ secrets.SSH_REMOTE_PORT }}
             username: ${{ secrets.SSH_REMOTE_USER }}
             password: ${{ secrets.SSH_REMOTE_PWD }}
-            strip_components: 1
+            strip_components: 3
