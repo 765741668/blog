@@ -47,18 +47,13 @@ jobs:
       #          FOLDER: docs/.vuepress/dist #注意这里是 npm run build 生成静态资源的路径：docs/.vuepress/dist
 
       # 4. 部署到家里
-      - name: Deploy to Server
-        uses: easingthemes/ssh-deploy@v2.0.7
-        env:
-          SSH_PRIVATE_KEY: ${{ secrets.ACCESS_TOKEN }} # 私钥
-          # 复制操作的参数。"-avzr --delete"意味部署时清空服务器目标目录下的文件
-          ARGS: "-avzr --delete"
-          # 源目录，相对于$GITHUB_WORKSPACE根目录的路径
-          SOURCE: "docs/.vuepress/dist/"
-          # 服务器域名
-          REMOTE_HOST: ${{ secrets.SSH_REMOTE_HOST }} # 公网ip
-          REMOTE_PORT: ${{ secrets.SSH_REMOTE_PORT }}
-          # 腾讯云默认用户名为root
-          REMOTE_USER: ${{ secrets.SSH_REMOTE_USER }}
-          # 目标目录
-          TARGET: ${{ secrets.SSH_REMOTE_DIR }} #/usr/local/software/blog
+      - name: Scp to Server
+        uses: appleboy/scp-action@master
+        with:
+            source: 'docs/.vuepress/dist/*'
+            host: ${{ secrets.SSH_REMOTE_HOST }}
+            target: ${{ secrets.SSH_REMOTE_DIR }}
+            port: ${{ secrets.SSH_REMOTE_PORT }}
+            username: ${{ secrets.SSH_REMOTE_USER }}
+            password: ${{ secrets.SSH_REMOTE_PWD }}
+            strip_components: 3
