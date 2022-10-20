@@ -30,6 +30,22 @@ export default defineConfig4CustomTheme<VdoingThemeConfig>({
     nav: [
       { text: '首页', link: '/' },
       {
+        text: 'Java',
+        link: '/java/',
+        items: [
+          {
+            text: 'JVM',
+            items: [
+              { text: '01.JVM类的加载机制', link: '/note/jvmClassLoader/' },
+            ],
+          },
+          { text: 'Spring', items: [
+              { text: '01.Spring源码编译', link: '/note/springSourceCodeCompile/' },
+            ],
+          },
+        ],
+      },
+      {
         text: '前端',
         link: '/web/', //目录页链接，此处link是vdoing主题新增的配置项，有二级导航时，可以点击一级导航跳到目录页
         items: [
