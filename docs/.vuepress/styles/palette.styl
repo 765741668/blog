@@ -1,6 +1,6 @@
 //***vdoing主题-样式变量（你可以修改这些变量值以覆盖主题使用的样式变量）***//
 
-// 以下注释的变量仅供参考，主题使用的最新变量请查看：https://github.com/xugaoyi/vuepress-theme-vdoing/blob/master/theme-vdoing/styles/palette.styl
+// 以下注释的变量仅供参考，主题使用的最新变量请查看：https://github.com/kevin/vuepress-theme-vdoing/blob/master/theme-vdoing/styles/palette.styl
 
 // // 颜色
 
@@ -8,6 +8,9 @@
 // $accentColor = #11A8CD // 主题色
 // $activeColor = #ff5722
 // $arrowBgColor = #ccc
+// $badgeTipColor = #42b983
+// $badgeWarningColor = darken(#ffe564, 35%)
+// $badgeErrorColor = #DA5961
 
 // // 布局
 // $navbarHeight = 3.6rem
@@ -37,6 +40,13 @@
 //   // --codeColor: #fff
 //   // codeThemeDark()
 
+// 浅色模式
+.theme-mode-light
+  //代码块深色主题
+  --codeBg: #282839
+  --codeColor: #fff
+  codeThemeDark()
+
 // // 深色模式
 // .theme-mode-dark
 //   --bodyBg: rgb(39,39,43)
@@ -62,3 +72,41 @@
 //   --codeBg: #282c34
 //   --codeColor: #fff
 //   codeThemeDark()
+
+//内容框架全铺
+.page .theme-vdoing-wrapper:not(.custom){
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 2rem 2.5rem;
+    max-width: none;   
+}
+
+//内容右上角日期右移
+.page .articleInfo-wrap {
+    max-width: none;
+}
+
+//内容全铺
+.page .theme-vdoing-content:not(.custom) {
+    max-width: none;
+}
+
+//页尾下一博客全铺
+.page .page-nav {
+    max-width: none;
+}
+
+//尾页上次更新时间靠右
+.page .page-edit {
+    max-width: none;
+}
+
+//页尾目录全铺
+.page .article-list:not(.custom){
+    max-width: none;   
+}
+
+//右侧内容目录
+.page .right-menu-wrapper {
+    margin-top: -160px;
+}
