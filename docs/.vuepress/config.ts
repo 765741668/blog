@@ -53,7 +53,7 @@ export default defineConfig4CustomTheme<VdoingThemeConfig>({
         ],
       },
       {
-        text: '框架源码',
+        text: '源码',
         link: '/sourceCode/',
         items: [
           { text: 'spring全家桶', link: '/node/sourceCode/springframework/' },
