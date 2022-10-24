@@ -8,7 +8,7 @@ import dayjs from 'dayjs'
 import baiduCode from './config/baiduCode' // 百度统计hm码
 import htmlModules from './config/htmlModules' // 自定义插入的html块
 
-const DOMAIN_NAME = 'xugaoyi.com' // 域名 (不带https)
+const DOMAIN_NAME = 'blog.orochi.press:8888' // 域名 (不带https)
 const WEB_SITE = `https://${DOMAIN_NAME}` // 网址
 
 export default defineConfig4CustomTheme<VdoingThemeConfig>({
@@ -19,7 +19,7 @@ export default defineConfig4CustomTheme<VdoingThemeConfig>({
     '/': {
       lang: 'zh-CN',
       title: "大蛇空间",
-      description: '后端技术栈汇总与架构设计',
+      description: '后端技术栈汇总与支撑亿级流量的架构演进之路',
     }
   },
   // base: '/', // 默认'/'。如果你想将你的网站部署到如 https://foo.github.io/bar/，那么 base 应该被设置成 "/bar/",（否则页面将失去样式等文件）
@@ -33,44 +33,33 @@ export default defineConfig4CustomTheme<VdoingThemeConfig>({
         text: 'Java',
         link: '/java/',
         items: [
-          {
-            text: 'JVM', link: '/note/jvm/classLoader/',
-          },
-          {
-            text: '基础', link: '/note/basis/thread',
-          },
-          {
-            text: 'jdk源码', link: '/note/jdkSource/HashMap',
-          },
-          {
-            text: '算法', link: '/note/algorithm/bubbleSort',
-          },
-          {
-            text: '设计模式', link: '/note/designPatterns/singleton/',
-          },
-          {
-            text: '网络开发', link: '/note/network/tcp',
-          },
-          {
-            text: '微服务', link: '/note/microService/springCloud',
-          },
+          { text: 'JVM', link: '/note/jvm/classLoader/' },
+          { text: '基础', link: '/note/basis/thread/' },
+          { text: 'jdk源码', link: '/note/jdkSource/HashMap/' },
+          { text: '算法', link: '/note/algorithm/bubbleSort/' },
+          { text: '设计模式', link: '/note/designPatterns/singleton/' },
+          { text: '网络开发', link: '/note/network/tcp/' },
+          { text: '微服务', link: '/note/microService/springCloud/' },
         ],
       },
       {
         text: '中间件',
         link: '/middleware/',
         items: [
-          { text: 'NoSql', link: '/node/es/' },
-          { text: '关系型数据库', link: '/node/mysql/' },
-          { text: '消息队列', link: '/node/rocketMq/' },
-          { text: 'zookeeper', link: '/node/zk/' },
+          { text: 'NoSql', link: '/node/nosql/es/' },
+          { text: '关系型数据库', link: '/node/db/mysql/' },
+          { text: '消息队列', link: '/node/mq/rocketMq/' },
+          { text: 'zookeeper', link: '/node/zk/zookeeper' },
         ],
       },
       {
         text: '框架源码',
-        link: '/source/',
+        link: '/sourceCode/',
         items: [
-          { text: 'springframework源码解读', link: '/node/springSourceCodeCompile/' },
+          { text: 'spring全家桶', link: '/node/spring/springframework/' },
+          { text: 'ORM', link: '/node/orm/mybatis/' },
+          { text: '分布式组件', link: '/node/distributedComponent/redission/' },
+          { text: '消息队列', link: '/node/mq/rocketMq/' },
         ],
       },
       {
@@ -78,39 +67,60 @@ export default defineConfig4CustomTheme<VdoingThemeConfig>({
         link: '/framework/', //目录页链接，此处link是vdoing主题新增的配置项，有二级导航时，可以点击一级导航跳到目录页
         items: [
           // 说明：以下所有link的值只是在相应md文件头部定义的永久链接（不是什么特殊编码）。另外，注意结尾是有斜杠的
-          {
-            text: '亿级消息平台架构设计', link: '/note/msgPlatform/'
-          },
-          {
-            text: '千万级财务平台架构设计', link: '/note/financialPlatform/'
-          },
+          { text: '消息平台架构设计', link: '/note/fwk/msgPlatform/' },
+          { text: '财务平台架构设计', link: '/note/fwk/financialPlatform/' },
+          { text: '物流操作平台架构设计', link: '/note/fwk/opsPlatform/' },
+          { text: '海量IM推送架构设计', link: '/note/fwkIm/imPush/' },
+          { text: '海量实时分布式日志采集架构设计', link: '/note/fwkElk/elk/' },
+          { text: '自制PVP游戏架构设计', link: '/note/fwkGame/pvpGame/' },
+          { text: '三高设计', link: '/note/fwk3H/seckillSystem/' },
+          { text: '其他设计', link: '/note/fwkOther/fullChainTraceId/' },
+          { text: '实验室', link: '/note/fwkLab/millionConnection/' },
         ],
       },
       {
-        text: '事故复盘',
+        text: '问题汇总',
         link: '/accidentSummary/',
         items: [
-          { text: '堆外内存泄露', link: '/node/outOfHeapMemoryLeaks/' },
+          { text: '生产事故', link: '/node/proAccident/serviceAvalanche/' },
+          { text: '日常问题', link: '/node/normal/ece/' },
+          { text: '其他事故收录', link: '/node/otherAccident/mqTransactionIdTooLong/' },
         ],
       },
       {
         text: '优化集锦',
         link: '/performance/',
         items: [
-          { text: 'es优化', link: '/node/esPerformance/' },
+          { text: 'JVM优化', link: '/node/performance/jvm/' },
+          { text: '中间件优化', link: '/node/performance/es/' },
+          { text: '框架优化', link: '/node/performance/hystrix/' },
+          { text: '代码优化', link: '/node/performance/waybillNoSplit/' },
+          { text: '自研组件', link: '/node/performance/vertxWebContainer/' },
         ],
       },
-      { text: '友情链接', link: '/friends/' },
+      {
+        text: '监控',
+        link: '/monitor/',
+        items: [
+          { text: 'ELK', link: '/node/monitor/elk/' },
+          { text: 'Java服务监控', link: '/node/monitor/java/' },
+          { text: '响应式服务监控', link: '/node/monitor/vertxWebContainer/' },
+          { text: '钉钉/微信定制推送', link: '/node/monitor/ddPush/' },
+          { text: 'Hystrix监控', link: '/node/monitor/hystrix/' },
+          { text: '其他监控', link: '/node/monitor/bizThread/' },
+        ],
+      },
       {
         text: '更多',
         link: '/more/',
         items: [
-          { text: '技术文档', link: '/pages/9a7ee40fc232253e', },
+          { text: '技术文档', link: '/node/normal/piSetup/', },
           { text: 'GitHub技巧', link: '/pages/4c778760be26d8b3' },
           { text: '《Git》笔记', link: '/pages/8292d8/' },
           { text: '博客搭建', link: '/pages/41f87d890d0a02af' },
         ],
       },
+      { text: '友情链接', link: '/friends/' },
       {
         text: '索引',
         link: '/archives/',
@@ -123,7 +133,7 @@ export default defineConfig4CustomTheme<VdoingThemeConfig>({
     ],
     sidebarDepth: 2, // 侧边栏显示深度，默认1，最大2（显示到h3标题）
     logo: '/img/logo.png', // 导航栏logo
-    repo: 'xugaoyi/vuepress-theme-vdoing', // 导航栏右侧生成Github链接
+    // repo: 'xugaoyi/vuepress-theme-vdoing', // 导航栏右侧生成Github链接
     searchMaxSuggestions: 10, // 搜索结果显示最大数
     lastUpdated: '上次更新', // 开启更新时间，并配置前缀文字   string | boolean (取值为git提交时间)
     docsDir: 'docs', // 编辑的文件夹
@@ -170,15 +180,15 @@ export default defineConfig4CustomTheme<VdoingThemeConfig>({
 
     // 文章默认的作者信息，(可在md文件中单独配置此信息) string | {name: string, link?: string}
     author: {
-      name: 'xugaoyi', // 必需
-      link: 'https://github.com/xugaoyi', // 可选的
+      name: 'Orochi', // 必需
+      link: 'https://github.com/765741668', // 可选的
     },
 
     // 博主信息 (显示在首页侧边栏)
     blogger: {
       avatar: 'https://fastly.jsdelivr.net/gh/xugaoyi/image_store/blog/20200103123203.jpg',
-      name: 'Evan Xu',
-      slogan: '前端界的小学生',
+      name: 'Orochi',
+      slogan: '比你优秀的并不可怕,勤能补拙,但比你优秀的人比你还努力,这太可怕了',
     },
 
     // 社交图标 (显示于博主信息栏和页脚栏。内置图标：https://doc.xugaoyi.com/pages/a20ce8/#social)
@@ -188,17 +198,17 @@ export default defineConfig4CustomTheme<VdoingThemeConfig>({
         {
           iconClass: 'icon-youjian',
           title: '发邮件',
-          link: 'mailto:894072666@qq.com',
+          link: 'mailto:765741668@qq.com',
         },
         {
           iconClass: 'icon-github',
           title: 'GitHub',
-          link: 'https://github.com/xugaoyi',
+          link: 'https://github.com/765741668',
         },
         {
           iconClass: 'icon-erji',
           title: '听音乐',
-          link: 'https://music.163.com/#/playlist?id=755597173',
+          link: 'https://music.163.com/#/playlist?id=603285922',
         },
       ],
     },
@@ -207,14 +217,14 @@ export default defineConfig4CustomTheme<VdoingThemeConfig>({
     footer: {
       createYear: 2019, // 博客创建年份
       copyrightInfo:
-        'Evan Xu | <a href="https://github.com/xugaoyi/vuepress-theme-vdoing/blob/master/LICENSE" target="_blank">MIT License</a>', // 博客版权信息、备案信息等，支持a标签或换行标签</br>
+        'Orochi | <a href="https://github.com/765741668/blob/master/LICENSE" target="_blank">MIT License</a>', // 博客版权信息、备案信息等，支持a标签或换行标签</br>
     },
 
     // 扩展自动生成frontmatter。（当md文件的frontmatter不存在相应的字段时将自动添加。不会覆盖已有的数据。）
     extendFrontmatter: {
       author: {
-        name: 'xugaoyi',
-        link: 'https://github.com/xugaoyi'
+        name: 'Orochi',
+        link: 'https://github.com/765741668'
       }
     },
 
@@ -229,10 +239,10 @@ export default defineConfig4CustomTheme<VdoingThemeConfig>({
       'meta',
       {
         name: 'keywords',
-        content: '前端博客,个人技术博客,前端,前端开发,前端框架,web前端,前端面试题,技术文档,学习,面试,JavaScript,js,ES6,TypeScript,vue,python,css3,html5,Node,git,github,markdown',
+        content: '后端博客,个人技术博客,后端,后端开发,后端框架,技术文档,git,github,markdown,es,elasticsearch,redis,mq,mysql,oracle,rest,elk',
       },
     ],
-    ['meta', { name: 'baidu-site-verification', content: '7F55weZDDc' }], // 百度统计的站长验证（你可以去掉）
+    // ['meta', { name: 'baidu-site-verification', content: '7F55weZDDc' }], // 百度统计的站长验证（你可以去掉）
     ['meta', { name: 'theme-color', content: '#11a8cd' }], // 移动浏览器主题颜色
     // [
     //   'script',
