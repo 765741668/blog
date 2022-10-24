@@ -188,7 +188,7 @@ export default defineConfig4CustomTheme<VdoingThemeConfig>({
 
     // 博主信息 (显示在首页侧边栏)
     blogger: {
-      avatar: 'https://fastly.jsdelivr.net/gh/xugaoyi/image_store/blog/20200103123203.jpg',
+      avatar: 'http://lsjqn.orochi.press/blog/蟹状星云2.jpg',
       name: 'Orochi',
       slogan: '比你优秀的并不可怕,勤能补拙,但比你优秀的人比你还努力,这太可怕了',
     },
