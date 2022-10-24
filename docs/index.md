@@ -1,6 +1,6 @@
 ---
 home: true
-# heroImage: /img/蝴蝶星云.jpg
+# heroImage: /img/web.png
 heroText: 大蛇空间
 tagline: 选择，积累，沉淀，输出
 # actionText: 立刻进入 →
