@@ -65,7 +65,7 @@ jobs:
             server_port: 465
             username: ${{MAIL_USER_NAME}}
             password: ${{MAIL_PWD}}
-            subject: Github Actions blog 热更新OK了
+            subject: Github Actions blog 部署完成了,请查收!
             to: ${{MAIL_TO_USER_NAME}}
             from: ${{MAIL_FROM_USER_NAME}}
             body: ${{github.repository}} 
