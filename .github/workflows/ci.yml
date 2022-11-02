@@ -63,9 +63,9 @@ jobs:
         with:
             server_address: smtp.qq.com
             server_port: 465
-            username: ${{MAIL_USER_NAME}}
-            password: ${{MAIL_PWD}}
+            username: ${{secrets.MAIL_USER_NAME}}
+            password: ${{secrets.MAIL_PWD}}
             subject: Github Actions blog 部署完成了,请查收!
-            to: ${{MAIL_TO_USER_NAME}}
-            #from: notifications@github.com
+            to: ${{secrets.MAIL_TO_USER_NAME}}
+            from: GitHub Actions
             body: ${{ github.repository }}, ${{ steps.git_log.outputs.log }}
