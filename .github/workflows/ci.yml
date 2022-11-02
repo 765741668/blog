@@ -57,3 +57,15 @@ jobs:
             username: ${{ secrets.SSH_REMOTE_USER }}
             password: ${{ secrets.SSH_REMOTE_PWD }}
             strip_components: 3
+      # 5. 部署完了发个邮件通知一下
+      - name: Send email
+        uses: dawidd6/action-send-mail@v3
+        with:
+            server_address: smtp.qq.com
+            server_port: 465
+            username: ${{MAIL_USER_NAME}}
+            password: ${{MAIL_PWD}}
+            subject: Github Actions blog 热更新OK了
+            to: ${{MAIL_TO_USER_NAME}}
+            from: ${{MAIL_FROM_USER_NAME}}
+            body: ${{github.repository}} push log : ${{steps.git_log.outputs.log}}
