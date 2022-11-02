@@ -170,15 +170,15 @@ export default defineConfig4CustomTheme<VdoingThemeConfig>({
       showToArticle: true, // 显示到文章页底部，默认true
       moreArticle: '/archives' // “更多文章”跳转的页面，默认'/archives'
     },
-    rightMenuBar: false, // 是否显示右侧文章大纲栏，默认true (屏宽小于1300px下无论如何都不显示)
-    sidebarOpen: false, // 初始状态是否打开左侧边栏，默认true
-    pageButton: false, // 是否显示快捷翻页按钮，默认true
+    // rightMenuBar: false, // 是否显示右侧文章大纲栏，默认true (屏宽小于1300px下无论如何都不显示)
+    // sidebarOpen: false, // 初始状态是否打开左侧边栏，默认true
+    // pageButton: false, // 是否显示快捷翻页按钮，默认true
 
     // 默认外观模式（用户未在页面手动修改过模式时才生效，否则以用户设置的模式为准），可选：'auto' | 'light' | 'dark' | 'read'，默认'auto'。
     // defaultMode: 'auto',
 
     // 侧边栏  'structuring' | { mode: 'structuring', collapsable: Boolean} | 'auto' | <自定义>    温馨提示：目录页数据依赖于结构化的侧边栏数据，如果你不设置为'structuring',将无法使用目录页
-    sidebar: 'structuring',
+    sidebar: { mode: 'structuring', collapsable: Boolean},
 
     // 文章默认的作者信息，(可在md文件中单独配置此信息) string | {name: string, link?: string}
     author: {
