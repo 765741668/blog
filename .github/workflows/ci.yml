@@ -68,4 +68,4 @@ jobs:
             subject: Github Actions blog 部署完成了,请查收!
             to: ${{secrets.MAIL_TO_USER_NAME}}
             from: GitHub Actions
-            body: ${{ github.repository }}, ${{ steps.git_log.outputs.log }}
+            body: ${{ github.repository }}
