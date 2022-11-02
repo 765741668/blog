@@ -68,4 +68,5 @@ jobs:
             subject: Github Actions blog 热更新OK了
             to: ${{MAIL_TO_USER_NAME}}
             from: ${{MAIL_FROM_USER_NAME}}
-            body: ${{github.repository}} push log : ${{steps.git_log.outputs.log}}
+            body: ${{github.repository}} 
+            push log : ${{steps.git_log.outputs.log}}
