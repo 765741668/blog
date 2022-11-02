@@ -63,10 +63,10 @@ jobs:
         with:
             server_address: smtp.qq.com
             server_port: 465
-            username: 765741668
-            password: 841320815Yzh*
+            username: 765741668@qq.com
+            password: awuzyqcxoeoebcfg
             subject: Github Actions blog 部署完成了,请查收!
             to: 765741668@qq.com
             from: notifications@github.com
-            body: ${{ github.repository }} 
+            body: ${{ github.repository }}
             push log : ${{ steps.git_log.outputs.log }}
