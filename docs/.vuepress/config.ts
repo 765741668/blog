@@ -115,9 +115,9 @@ export default defineConfig4CustomTheme<VdoingThemeConfig>({
         link: '/more/',
         items: [
           { text: '技术文档', link: '/note/normal/piSetup/', },
-          { text: 'GitHub技巧', link: '/pages/4c778760be26d8b3' },
+          { text: 'GitHub技巧', link: '/pages/4c778760be26d8b3/' },
           { text: '《Git》笔记', link: '/pages/8292d8/' },
-          { text: '博客搭建', link: '/pages/41f87d890d0a02af' },
+          { text: '博客搭建', link: '/pages/41f87d890d0a02af/' },
         ],
       },
       { text: '友情链接', link: '/friends/' },
