@@ -244,7 +244,7 @@ export default defineConfig4CustomTheme<VdoingThemeConfig>({
         content: '后端博客,个人技术博客,后端,后端开发,后端框架,技术文档,git,github,markdown,es,elasticsearch,redis,mq,mysql,oracle,rest,elk',
       },
     ],
-    // ['meta', { name: 'baidu-site-verification', content: '7F55weZDDc' }], // 百度统计的站长验证（你可以去掉）
+    ['meta', { name: 'baidu-site-verification', content: '7F55weZDDc' }], // 百度统计的站长验证（你可以去掉）
     ['meta', { name: 'theme-color', content: '#11a8cd' }], // 移动浏览器主题颜色
     // [
     //   'script',
