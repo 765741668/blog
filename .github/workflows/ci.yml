@@ -83,7 +83,7 @@ jobs:
             subject: Github Actions blog 部署完成了,请查收!
             to: ${{secrets.MAIL_TO_USER_NAME}}
             from: GitHub Actions
-            body: 仓库：${{ github.repository }}, 查阅地址：${{ secrets.MEIZI_MAIL_BODY }}
+            body: 仓库：${{ github.repository }}\n查阅地址：${{ secrets.MEIZI_MAIL_BODY }}
       # 6. 部署完了发个邮件通知一下2
 #      - name: Send email2
 #        uses: dawidd6/action-send-mail@v3
