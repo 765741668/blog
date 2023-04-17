@@ -30,6 +30,16 @@ export default defineConfig4CustomTheme<VdoingThemeConfig>({
     nav: [
       { text: '首页', link: '/' },
       {
+        text: '产品',
+        link: '/product/',
+        items: [
+          { text: '需求调研', link: '/note/research/step/' },
+          { text: '需求分析', link: '/note/analysis/target/' },
+          { text: '开发沟通', link: '/note/communication/methods/' },
+          { text: '功能点分析', link: '/note/functionPoint/angle/' }
+        ],
+      },
+      {
         text: 'Java',
         link: '/java/',
         items: [
