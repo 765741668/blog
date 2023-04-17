@@ -33,10 +33,10 @@ export default defineConfig4CustomTheme<VdoingThemeConfig>({
         text: '产品',
         link: '/product/',
         items: [
-          { text: '需求调研', link: '/note/research/step/' },
-          { text: '需求分析', link: '/note/analysis/target/' },
-          { text: '开发沟通', link: '/note/communication/methods/' },
-          { text: '功能点分析', link: '/note/functionPoint/angle/' }
+          { text: '需求调研', link: '/note/research/01/' },
+          { text: '需求分析', link: '/note/analysis/01/' },
+          { text: '开发沟通', link: '/note/communication/01/' },
+          { text: '功能点分析', link: '/note/functionPoint/01/' }
         ],
       },
       {
