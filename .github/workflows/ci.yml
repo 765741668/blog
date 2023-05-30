@@ -85,14 +85,14 @@ jobs:
             from: GitHub Actions
             body: 仓库：${{ github.repository }} 查阅地址：${{ secrets.MEIZI_MAIL_BODY }}
       # 6. 部署完了发个邮件通知一下2
-      - name: Send email2
-        uses: dawidd6/action-send-mail@v3
-        with:
-            server_address: smtp.qq.com
-            server_port: 465
-            username: ${{secrets.MAIL_USER_NAME}}
-            password: ${{secrets.MAIL_PWD}}
-            subject: 您的博客部署完成了,请查阅!
-            to: ${{secrets.MAIL_TO_USER_NAME_MEIZI}}
-            from: GitHub Actions
-            body: ${{ secrets.MEIZI_MAIL_BODY }}
+#      - name: Send email2
+#        uses: dawidd6/action-send-mail@v3
+#        with:
+#            server_address: smtp.qq.com
+#            server_port: 465
+#            username: ${{secrets.MAIL_USER_NAME}}
+#            password: ${{secrets.MAIL_PWD}}
+#            subject: 您的博客部署完成了,请查阅!
+#            to: ${{secrets.MAIL_TO_USER_NAME_MEIZI}}
+#            from: GitHub Actions
+#            body: ${{ secrets.MEIZI_MAIL_BODY }}
