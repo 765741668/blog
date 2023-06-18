@@ -47,16 +47,16 @@ jobs:
       #          FOLDER: docs/.vuepress/dist #注意这里是 npm run build 生成静态资源的路径：docs/.vuepress/dist
 
       # 4. 部署到家里
-#      - name: Scp to Server
-#        uses: appleboy/scp-action@master
-#        with:
-#            source: 'docs/.vuepress/dist/*'
-#            host: ${{ secrets.SSH_REMOTE_HOST }}
-#            target: ${{ secrets.SSH_REMOTE_DIR }}
-#            port: ${{ secrets.SSH_REMOTE_PORT }}
-#            username: ${{ secrets.SSH_REMOTE_USER }}
-#            password: ${{ secrets.SSH_REMOTE_PWD }}
-#            strip_components: 3
+      - name: Scp to Server
+        uses: appleboy/scp-action@master
+        with:
+            source: 'docs/.vuepress/dist/*'
+            host: ${{ secrets.SSH_REMOTE_HOST }}
+            target: ${{ secrets.SSH_REMOTE_DIR }}
+            port: ${{ secrets.SSH_REMOTE_PORT }}
+            username: ${{ secrets.SSH_REMOTE_USER }}
+            password: ${{ secrets.SSH_REMOTE_PWD }}
+            strip_components: 3
       # 5. 部署到海外服务器
       - name: Deploy to Server
         uses: easingthemes/ssh-deploy@v2.0.7
