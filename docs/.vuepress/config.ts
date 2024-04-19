@@ -200,7 +200,7 @@ export default defineConfig4CustomTheme<VdoingThemeConfig>({
     blogger: {
       avatar: 'http://lsjqn.orochi.press/blog/蟹状星云2.jpg',
       name: 'Orochi',
-      slogan: '比你优秀的不可怕,但比你优秀的人比你还努力,你们这些人~',
+      slogan: '比你优秀的不可怕,但比你优秀的人比你还努力,好可怕~',
     },
 
     // 社交图标 (显示于博主信息栏和页脚栏。内置图标：https://doc.xugaoyi.com/pages/a20ce8/#social)
