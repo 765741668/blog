@@ -71,6 +71,7 @@ jobs:
             password: ${{secrets.MAIL_PWD}}
             subject: 您的博客部署(US)完成了,请查收!
             to: ${{secrets.MAIL_TO_USER_NAME}}
+            cc: ${{secrets.MAIL_TO_USER_NAME_FREEDOM}}
             from: GitHub Actions
             body: 仓库：${{ github.repository }} 查阅地址：${{ secrets.MEIZI_MAIL_BODY }}            
       # 6. 部署到家里
@@ -95,19 +96,7 @@ jobs:
             subject: 您的博客部署(HOME)完成了,请查收!
             to: ${{secrets.MAIL_TO_USER_NAME}}
             from: GitHub Actions
-            body: 仓库：${{ github.repository }} 查阅地址：${{ secrets.MEIZI_MAIL_BODY }}
-      # 8. 部署完了发个邮件通知一下
-      - name: Send email
-        uses: dawidd6/action-send-mail@v3
-        with:
-            server_address: smtp.qq.com
-            server_port: 465
-            username: ${{secrets.MAIL_USER_NAME}}
-            password: ${{secrets.MAIL_PWD}}
-            subject: 您的博客已经发布了,请查阅!
-            to: ${{secrets.MAIL_TO_USER_NAME_FREEDOM}}
-            from: Blog
-            body: 查阅地址：${{ secrets.FREEDOM_MAIL_BODY }}            
+            body: 仓库：${{ github.repository }} 查阅地址：${{ secrets.MEIZI_MAIL_BODY }}        
       # 9. 部署完了发个邮件通知一下2
 #      - name: Send email2
 #        uses: dawidd6/action-send-mail@v3
